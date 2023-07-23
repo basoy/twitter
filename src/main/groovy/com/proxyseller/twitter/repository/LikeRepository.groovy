@@ -1,6 +1,6 @@
 package com.proxyseller.twitter.repository
 
-import com.proxyseller.twitter.entitiy.Like
+import com.proxyseller.twitter.entity.Like
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface LikeRepository extends MongoRepository<Like, String> {

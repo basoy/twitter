@@ -1,15 +1,15 @@
 package com.proxyseller.twitter.dto
 
-class PostCreateRequest {
+class PostUpdateRequest {
 
     String content
     String userId
 
-    PostCreateRequest(String content, String userId) {
+    PostUpdateRequest(String content, String userId) {
         this.content = content
         this.userId = userId
     }
 
-    PostCreateRequest() {
+    PostUpdateRequest() {
     }
 }

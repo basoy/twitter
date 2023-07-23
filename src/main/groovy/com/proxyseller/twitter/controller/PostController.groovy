@@ -2,6 +2,7 @@ package com.proxyseller.twitter.controller
 
 import com.proxyseller.twitter.dto.CommentRequest
 import com.proxyseller.twitter.dto.PostCreateRequest
+import com.proxyseller.twitter.dto.PostUpdateRequest
 import com.proxyseller.twitter.service.PostService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -25,7 +26,7 @@ class PostController {
     }
 
     @PutMapping("/{postId}")
-    def updatePost(@PathVariable String postId, @RequestBody def postRequest) {
+    def updatePost(@PathVariable String postId, @RequestBody PostUpdateRequest postRequest) {
         return postService.updatePost(postId, postRequest.content)
     }
 
@@ -45,5 +46,15 @@ class PostController {
     @GetMapping("/{postId}/comment")
     def commentOnPost(@PathVariable String postId) {
         postService.getPostComments(postId)
+    }
+
+    @PostMapping("/{postId}/like/{userId}")
+    def likePost(@PathVariable String postId, @PathVariable String userId) {
+        postService.likePost(postId, userId)
+    }
+
+    @DeleteMapping("/{postId}/unlike/{userId}")
+    def unlikePost(@PathVariable String postId, @PathVariable String userId) {
+        postService.unlikePost(postId, userId)
     }
 }

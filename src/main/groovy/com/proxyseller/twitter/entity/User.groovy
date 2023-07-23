@@ -1,4 +1,4 @@
-package com.proxyseller.twitter.entitiy
+package com.proxyseller.twitter.entity
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.DBRef

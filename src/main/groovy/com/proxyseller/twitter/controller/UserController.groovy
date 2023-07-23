@@ -34,4 +34,19 @@ class UserController {
     void deleteUser(@PathVariable String userId) {
         userService.deleteUser(userId)
     }
+
+    @PostMapping("/{followerId}/follow/{followingId}")
+    def followUser(@PathVariable String followerId, @PathVariable String followingId) {
+        userService.followUser(followerId, followingId)
+    }
+
+    @DeleteMapping("/{followerId}/unfollow/{followingId}")
+    def unfollowUser(@PathVariable String followerId, @PathVariable String followingId) {
+        userService.unfollowUser(followerId, followingId)
+    }
+
+    @GetMapping("/{userId}/feed")
+    def getUserFeed(@PathVariable String userId) {
+       return userService.getUserFeed(userId)
+    }
 }
