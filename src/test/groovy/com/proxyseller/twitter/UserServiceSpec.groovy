@@ -22,7 +22,10 @@ class UserServiceSpec extends Specification {
     PostService postService = Mock()
 
     def setup() {
-        userService = new UserService(userRepository, followService, postService)
+        userService = new UserService()
+        userService.userRepository = userRepository
+        userService.followService = followService
+        userService.postService = postService
     }
 
     def "createUser() should create a new user with the provided details"() {

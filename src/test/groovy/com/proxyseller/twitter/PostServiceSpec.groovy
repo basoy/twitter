@@ -1,7 +1,5 @@
 package com.proxyseller.twitter
 
-import com.proxyseller.twitter.entity.Comment
-import com.proxyseller.twitter.entity.Like
 import com.proxyseller.twitter.entity.Post
 import com.proxyseller.twitter.entity.User
 import com.proxyseller.twitter.repository.CommentRepository
@@ -25,7 +23,12 @@ class PostServiceSpec extends Specification {
     UserService userService = Mock()
 
     def setup() {
-        postService = new PostService(postRepository, userRepository, commentRepository, likeRepository, userService)
+        postService = new PostService()
+        postService.postRepository = postRepository
+        postService.userRepository = userRepository
+        postService.commentRepository = commentRepository
+        postService.likeRepository = likeRepository
+        postService.userService = userService
     }
 
     def "createPost() should create a new post with the provided details"() {

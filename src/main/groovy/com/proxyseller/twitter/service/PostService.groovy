@@ -25,16 +25,8 @@ class PostService {
     @Autowired
     private LikeRepository likeRepository
 
-   @Autowired
-   private UserService userService
-
-    PostService(PostRepository postRepository, UserRepository userRepository, CommentRepository commentRepository, LikeRepository likeRepository, UserService userService) {
-        this.postRepository = postRepository
-        this.userRepository = userRepository
-        this.commentRepository = commentRepository
-        this.likeRepository = likeRepository
-        this.userService = userService
-    }
+    @Autowired
+    private UserService userService
 
     def createPost(String content, String author) {
         Post newPost = new Post(content, userService.getUserById(author))

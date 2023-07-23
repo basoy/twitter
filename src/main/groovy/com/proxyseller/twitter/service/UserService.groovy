@@ -18,12 +18,6 @@ class UserService {
     @Autowired
     private FollowService followService
 
-    UserService(UserRepository userRepository, FollowService followService, PostService postService) {
-        this.userRepository = userRepository
-        this.followService = followService
-        this.postService = postService
-    }
-
     def createUser(String username, String email, String password, List<String> following) {
         User newUser = new User(username, email, password, following as List<User>)
         return userRepository.save(newUser)
